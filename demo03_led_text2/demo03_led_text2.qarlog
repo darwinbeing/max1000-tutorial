@@ -1,0 +1,24 @@
+Quartus Prime Archive log --	/home/alw/fpga/max1000/max1000-tutorial/demo03_led_text2/demo03_led_text2.qarlog
+
+Archive:	/home/alw/fpga/max1000/max1000-tutorial/demo03_led_text2/demo03_led_text2.qar
+Date:		Sat Aug 18 09:42:06 2018
+Quartus Prime		17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition
+
+	=========== Files Selected: ===========
+/home/alw/fpga/max1000/max1000-tutorial/cores/osdvu/uart.v
+/home/alw/fpga/max1000/max1000-tutorial/demo03_led_text2/font5x7.hex
+/home/alw/fpga/max1000/max1000-tutorial/demo03_led_text2/font_rom.qip
+/home/alw/fpga/max1000/max1000-tutorial/demo03_led_text2/font_rom.v
+/home/alw/fpga/max1000/max1000-tutorial/demo03_led_text2/font_rom_bb.v
+/home/alw/fpga/max1000/max1000-tutorial/demo03_led_text2/sequencer.v
+/home/alw/fpga/max1000/max1000-tutorial/demo03_led_text2/spi_master.v
+/home/alw/fpga/max1000/max1000-tutorial/demo03_led_text2/test0.qpf
+/home/alw/fpga/max1000/max1000-tutorial/demo03_led_text2/test0.qsf
+/home/alw/fpga/max1000/max1000-tutorial/demo03_led_text2/test0.sdc
+/home/alw/fpga/max1000/max1000-tutorial/demo03_led_text2/test0_assignment_defaults.qdf
+/home/alw/fpga/max1000/max1000-tutorial/demo03_led_text2/top.v
+/home/alw/fpga/max1000/max1000-tutorial/demo03_led_text2/top_tb.v
+	======= Total: 13 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
