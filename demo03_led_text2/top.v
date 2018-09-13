@@ -185,12 +185,22 @@ assign LED[7] = rom_out[0];
 
 wire isrx;   // Uart sees something!
 wire [7:0] rx_byte;  // Uart data
+reg [7:0] tx_byte;  // for echo
+reg xmitnow=1'b0;
 reg [3:0] fooptr=0;   // pointer into foo array
 integer i;
 
 always @(posedge CLK12M) begin
    if (isrx)    // if you got something
 	    begin
+// I added an echo but since there is no handshaking
+// if you slam the bytes in you will overrun the transmitter
+// which is fine --it will work, it just won't echo all the 
+// characters -- this is only a problem if you use something
+// that buffers up a bunch of bytes and then sends them at once
+// For hand typing shouldn't be an issue
+		  tx_byte<=rx_byte;
+		  xmitnow<=1'b1;
 		  if (rx_byte==8'h0d)
 		     fooptr<=0;
 		  else if (rx_byte==8'h1b) 
@@ -205,6 +215,8 @@ always @(posedge CLK12M) begin
 		    fooptr<=fooptr+1;   // natural roll over at 16
 		  end
 		end
+	else
+	  xmitnow<=1'b0;
 end
 
 // Use the usual UART I always use
@@ -218,8 +230,8 @@ end
         .rst(~nrst),                        // Synchronous reset
         .rx(UART_RXD),                          // Incoming serial line
         .tx(UART_TXD),                          // Outgoing serial line
-        .transmit(),              // Signal to transmit
-        .tx_byte(),                // Byte to transmit       
+        .transmit(xmitnow),              // Signal to transmit
+        .tx_byte(tx_byte),                // Byte to transmit       
         .received(isrx),              // Indicated that a byte has been received
         .rx_byte(rx_byte),                // Byte received
         .is_receiving(),      // Low when receive line is idle
